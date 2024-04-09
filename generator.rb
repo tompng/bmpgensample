@@ -35,11 +35,18 @@ end
 width = 180 # 60
 height = 138 # 50
 bytes_per_pixel = 3
-code = "\n" + <<~CODE + "\n__END__\n"
-.!if  eval %w(eva l( [DATA.b  i  n  m  o  d  e. r  e  a  d. c  h  a  r  s .m  a  p  {  |  a  |  a. o  r  d  [0 ]  }. j  o  i  n ,]. p  a  c  k 'b*'))*'';;
-CODE
-#0###222###444###666###888###000###222###444###666###888###000###222###444###666###888###000###222###444###666###888###000###222###444###666###888###000
+
+".!if  eval %w(eva l( [DATA.b  i  n  m  o  d  e. r  e  a  d. c  h  a  r  s .m  a  p  {  |  a  |  a. o  r  d  [0 ]  }. j  o  i  n ,]. p  a  c  k 'b*'))*'';;\n"
+entrypoint =# %q(
 #0                            10                            20                            30                            40                            50
+#00###222###444###666###888###000###222###444###666###888###000###222###444###666###888###000###222###444###666###888###000###222###444###666###888###000
+".!if  eval %w(eva l( [DATA.b  i  n  m  o  d  e. r  e  a  d. c  h  a  r  s .m  a  p  {  |a;za,xb,xZ,xM,qD,sA |a.or d[0]; }. j  o  i  n ,]. p  a  c  k 'b*'))*'';;\n"
+#.! if eval"eva l( [DATA.e$ a# c#h_$ b$ yt e. ma p{ _1%~-3}*%|| ]. pa c  k' b*')".tr'^%-~a"za"~z"wz"xx',+%@@
+#).split(/\n/).last
+
+#".! if eval(%w(eva l( [DATA.e  a  c h_  b  yt e. ma p{ _1%~-3}*%|| ]. pa c  k' b*'))*'');;"
+
+code = "\n" + entrypoint + "\n__END__\n"
 image = ChunkyPNG::Image.from_file 'input.png'
 embedded_code = File.read('code.rb')
 embedded_code = embedded_code.lines.map{|a|a.gsub(/^ +(#.*)?/,'')}.join
